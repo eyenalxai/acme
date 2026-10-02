@@ -1,0 +1,32 @@
+{
+  "name": "@acme/auth",
+  "version": "0.0.1",
+  "private": true,
+  "license": "proprietary",
+  "type": "module",
+  "imports": {
+    "#*": "./src/*.ts"
+  },
+  "exports": {
+    "./*": "./src/*.ts"
+  },
+  "scripts": {
+    "auth:generate": "varlock run --path ../.. -- auth generate --yes --config src/server.ts --output ../db/src/schema/auth.generated.ts",
+    "tsc": "tsc --noEmit",
+    "format": "oxfmt",
+    "lint": "oxlint --type-aware --fix --no-error-on-unmatched-pattern"
+  },
+  "dependencies": {
+    "@acme/db": "workspace:*",
+    "@acme/env": "workspace:*",
+    "@better-auth/drizzle-adapter": "1.7.6",
+    "better-auth": "1.7.6",
+    "effect": "4.0.0-rc.115"
+  },
+  "devDependencies": {
+    "@acme/oxlint-config": "workspace:*",
+    "@acme/typescript-config": "workspace:*",
+    "auth": "1.7.6",
+    "typescript": "7.0.2"
+  }
+}

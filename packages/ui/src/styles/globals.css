@@ -1,0 +1,170 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+@import "shadcn/tailwind.css";
+
+/*
+ * Only the components that an app module can reach are scanned. A package-wide
+ * glob scans components that nothing imports and grows this stylesheet with
+ * utilities that only those components mention.
+ * `bun run --filter @acme/ui ui -- add <name>` means adding a file here.
+ */
+@source "../../../../apps/web/src/**/*.{ts,tsx}";
+@source "../components/{alert,avatar,button,card,dropdown-menu,empty,input,item,separator,sheet,sidebar,skeleton,sonner,spinner,tooltip}.tsx";
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-success: var(--success);
+  --color-warning: var(--warning);
+  --color-info: var(--info);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+  --radius-sm: calc(var(--radius) * 0.6);
+  --radius-md: calc(var(--radius) * 0.8);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) * 1.4);
+  --radius-2xl: calc(var(--radius) * 1.8);
+  --radius-3xl: calc(var(--radius) * 2.2);
+  --radius-4xl: calc(var(--radius) * 2.6);
+}
+
+:root {
+  color-scheme: light dark;
+  --background: oklch(0.995 0.0015 264);
+  --foreground: oklch(0.16 0.008 264);
+  --card: oklch(1 0 0);
+  --card-foreground: oklch(0.16 0.008 264);
+  --popover: oklch(1 0 0);
+  --popover-foreground: oklch(0.16 0.008 264);
+  --primary: oklch(0.21 0.008 264);
+  --primary-foreground: oklch(0.985 0.002 264);
+  --secondary: oklch(0.968 0.004 264);
+  --secondary-foreground: oklch(0.21 0.008 264);
+  --muted: oklch(0.968 0.004 264);
+  --muted-foreground: oklch(0.552 0.012 264);
+  --accent: oklch(0.968 0.004 264);
+  --accent-foreground: oklch(0.21 0.008 264);
+  --destructive: oklch(0.577 0.245 27.325);
+  --success: oklch(0.527 0.154 150.069);
+  --warning: oklch(0.555 0.163 48.998);
+  --info: oklch(0.546 0.245 262.881);
+  --border: oklch(0.923 0.006 264);
+  --input: oklch(0.923 0.006 264);
+  --ring: oklch(0.708 0.012 264);
+  --chart-1: oklch(0.845 0.143 164.978);
+  --chart-2: oklch(0.696 0.17 162.48);
+  --chart-3: oklch(0.596 0.145 163.225);
+  --chart-4: oklch(0.508 0.118 165.612);
+  --chart-5: oklch(0.432 0.095 166.913);
+  --radius: 0.625rem;
+  --sidebar: oklch(0.985 0.003 264);
+  --sidebar-foreground: oklch(0.16 0.008 264);
+  --sidebar-primary: oklch(0.21 0.008 264);
+  --sidebar-primary-foreground: oklch(0.985 0.002 264);
+  --sidebar-accent: oklch(0.968 0.004 264);
+  --sidebar-accent-foreground: oklch(0.21 0.008 264);
+  --sidebar-border: oklch(0.923 0.006 264);
+  --sidebar-ring: oklch(0.708 0.012 264);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: oklch(0.16 0.006 264);
+    --foreground: oklch(0.985 0.002 264);
+    --card: oklch(0.205 0.008 264);
+    --card-foreground: oklch(0.985 0.002 264);
+    --popover: oklch(0.205 0.008 264);
+    --popover-foreground: oklch(0.985 0.002 264);
+    --primary: oklch(0.922 0.004 264);
+    --primary-foreground: oklch(0.205 0.008 264);
+    --secondary: oklch(0.274 0.008 264);
+    --secondary-foreground: oklch(0.985 0.002 264);
+    --muted: oklch(0.274 0.008 264);
+    --muted-foreground: oklch(0.708 0.012 264);
+    --accent: oklch(0.274 0.008 264);
+    --accent-foreground: oklch(0.985 0.002 264);
+    --destructive: oklch(0.704 0.191 22.216);
+    --success: oklch(0.723 0.219 149.579);
+    --warning: oklch(0.769 0.188 70.08);
+    --info: oklch(0.707 0.165 254.624);
+    --border: oklch(1 0 0 / 10%);
+    --input: oklch(1 0 0 / 15%);
+    --ring: oklch(0.556 0.012 264);
+    --chart-1: oklch(0.845 0.143 164.978);
+    --chart-2: oklch(0.696 0.17 162.48);
+    --chart-3: oklch(0.596 0.145 163.225);
+    --chart-4: oklch(0.508 0.118 165.612);
+    --chart-5: oklch(0.432 0.095 166.913);
+    --sidebar: oklch(0.205 0.008 264);
+    --sidebar-foreground: oklch(0.985 0.002 264);
+    --sidebar-primary: oklch(0.922 0.004 264);
+    --sidebar-primary-foreground: oklch(0.205 0.008 264);
+    --sidebar-accent: oklch(0.274 0.008 264);
+    --sidebar-accent-foreground: oklch(0.985 0.002 264);
+    --sidebar-border: oklch(1 0 0 / 10%);
+    --sidebar-ring: oklch(0.556 0.012 264);
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+  button:not(:disabled),
+  [role="button"]:not(:disabled) {
+    cursor: pointer;
+  }
+}
+
+/*
+ * The shadcn components animate width, position and opacity unconditionally.
+ * None of them ships a reduced-motion guard of its own. This block is the one
+ * place that keeps movement out of the way for the people who asked for less of
+ * it.
+ */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  ::before,
+  ::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+
+  /* A spinner that cannot spin reads as a broken icon. It therefore keeps turning, but slower. */
+  [data-slot="spinner"] {
+    animation-duration: 1.5s !important;
+    animation-iteration-count: infinite !important;
+  }
+}

@@ -1,0 +1,34 @@
+{
+  "name": "@acme/oxlint-config",
+  "version": "0.0.1",
+  "private": true,
+  "license": "proprietary",
+  "type": "module",
+  "imports": {
+    "#base-config": "./src/base-config.ts",
+    "#frontend-config": "./src/frontend-config.ts",
+    "#react-doctor/policy": "./src/react-doctor/policy.ts",
+    "#react-doctor/rules": "./src/react-doctor/rules.ts"
+  },
+  "exports": {
+    ".": "./src/index.ts",
+    "./base-config": "./src/base-config.ts",
+    "./frontend-config": "./src/frontend-config.ts",
+    "./react-doctor/policy": "./src/react-doctor/policy.ts",
+    "./react-doctor/rules": "./src/react-doctor/rules.ts"
+  },
+  "scripts": {
+    "tsc": "tsc --noEmit",
+    "format": "oxfmt",
+    "lint": "oxlint --type-aware --fix --no-error-on-unmatched-pattern"
+  },
+  "devDependencies": {
+    "@acme/typescript-config": "workspace:*",
+    "@types/node": "26.6.3",
+    "oxlint": "1.85.0",
+    "typescript": "7.0.2"
+  },
+  "peerDependencies": {
+    "oxlint-plugin-react-doctor": "0.9.14"
+  }
+}

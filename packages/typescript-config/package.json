@@ -1,0 +1,19 @@
+{
+  "name": "@acme/typescript-config",
+  "version": "0.0.1",
+  "private": true,
+  "license": "proprietary",
+  "files": [
+    "base.json",
+    "lib.json",
+    "app.json",
+    "react.json"
+  ],
+  "type": "module",
+  "exports": {
+    "./base.json": "./base.json",
+    "./lib.json": "./lib.json",
+    "./app.json": "./app.json",
+    "./react.json": "./react.json"
+  }
+}

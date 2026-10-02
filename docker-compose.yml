@@ -1,0 +1,24 @@
+services:
+  postgres:
+    image: postgres:17
+    ports:
+      - "5434:5432"
+    environment:
+      POSTGRES_USER: acme
+      POSTGRES_PASSWORD: acme
+      POSTGRES_DB: acme
+    command:
+      [
+        "postgres",
+        "-c",
+        "log_statement=all",
+        "-c",
+        "log_duration=on",
+        "-c",
+        "log_min_duration_statement=0",
+      ]
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+
+volumes:
+  pgdata:

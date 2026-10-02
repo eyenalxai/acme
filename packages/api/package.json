@@ -1,0 +1,34 @@
+{
+  "name": "@acme/api",
+  "version": "0.0.1",
+  "private": true,
+  "license": "proprietary",
+  "type": "module",
+  "imports": {
+    "#*": "./src/*.ts"
+  },
+  "exports": {
+    "./*": "./src/*.ts"
+  },
+  "scripts": {
+    "tsc": "tsc --noEmit",
+    "format": "oxfmt",
+    "lint": "oxlint --type-aware --fix --no-error-on-unmatched-pattern"
+  },
+  "dependencies": {
+    "@acme/db": "workspace:*",
+    "@orpc/client": "2.0.0-beta.40",
+    "@orpc/contract": "2.0.0-beta.40",
+    "@orpc/experimental-effect": "2.0.0-beta.40",
+    "@orpc/server": "2.0.0-beta.40",
+    "@orpc/tanstack-query": "2.0.0-beta.40",
+    "drizzle-orm": "1.0.0-rc.5-5935859",
+    "effect": "4.0.0-rc.115"
+  },
+  "devDependencies": {
+    "@acme/oxlint-config": "workspace:*",
+    "@acme/typescript-config": "workspace:*",
+    "@tanstack/query-core": "5.104.0",
+    "typescript": "7.0.2"
+  }
+}

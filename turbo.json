@@ -1,0 +1,66 @@
+{
+  "$schema": "https://turborepo.com/schema.json",
+  "ui": "tui",
+  "globalDependencies": [
+    ".env.schema",
+    "oxlint.config.ts",
+    "packages/oxlint-config/src/**",
+    "packages/oxlint-config/package.json",
+    "packages/typescript-config/*.json",
+    "apps/*/oxlint.config.ts",
+    "packages/*/oxlint.config.ts"
+  ],
+  "globalEnv": ["NODE_ENV", "APP_ENV", "VARLOCK_ENV"],
+  "globalPassThroughEnv": ["PORTLESS"],
+  "tasks": {
+    "dev": {
+      "dependsOn": ["^tsc"],
+      "cache": false,
+      "persistent": true
+    },
+    "build": {
+      "dependsOn": ["^tsc"],
+      "outputs": [".output/**", "dist/**"],
+      "inputs": ["src/**", "public/**", "vite.config.*", "tsconfig.json"]
+    },
+    "tsc": {
+      "dependsOn": ["^tsc"],
+      "inputs": ["src/**/*.ts", "src/**/*.tsx", "tsconfig.json", "package.json"]
+    },
+    "typegen": {
+      "dependsOn": ["^tsc"],
+      "outputs": ["src/routeTree.gen.ts"],
+      "inputs": ["src/routes/**", "vite.config.*", "tsr.config.json"]
+    },
+    "format": {
+      "dependsOn": ["^format"],
+      "inputs": ["src/**", "*.json", "*.jsonc"]
+    },
+    "lint": {
+      "dependsOn": ["^lint"],
+      "inputs": ["src/**", "oxlint.config.ts", "package.json"]
+    },
+    "db:generate": {
+      "cache": false
+    },
+    "db:migrate": {
+      "cache": false
+    },
+    "db:push": {
+      "cache": false
+    },
+    "db:studio": {
+      "cache": false,
+      "persistent": true
+    },
+    "auth:generate": {
+      "cache": false,
+      "outputs": ["src/database/schema/auth.generated.ts"]
+    },
+    "@acme/web#dev": {
+      "dependsOn": ["^tsc"],
+      "cache": false,
+      "persistent": true
+    }
+  }
+}

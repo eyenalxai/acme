@@ -1,0 +1,15 @@
+{
+  "$schema": "https://json.schemastore.org/tsconfig",
+  "extends": "@acme/typescript-config/react.json",
+  "compilerOptions": {
+    "paths": {
+      "@/*": ["./src/*"]
+    },
+    "noEmit": true,
+    // TanStack Start's build docs warn that verbatimModuleSyntax can cause server
+    // bundles to leak into client bundles, which is a security boundary here.
+    // Every other workspace keeps it on.
+    "verbatimModuleSyntax": false
+  },
+  "include": ["src/**/*", "vite.config.ts"]
+}

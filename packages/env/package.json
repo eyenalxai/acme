@@ -1,0 +1,28 @@
+{
+  "name": "@acme/env",
+  "version": "0.0.1",
+  "private": true,
+  "license": "proprietary",
+  "type": "module",
+  "imports": {
+    "#*": "./src/*.ts"
+  },
+  "exports": {
+    "./*": "./src/*.ts"
+  },
+  "scripts": {
+    "codegen": "varlock codegen --path ../.. && oxfmt src/env.d.ts",
+    "tsc": "bun run codegen && tsc --noEmit",
+    "format": "oxfmt",
+    "lint": "oxlint --type-aware --fix --no-error-on-unmatched-pattern"
+  },
+  "dependencies": {
+    "effect": "4.0.0-rc.115"
+  },
+  "devDependencies": {
+    "@acme/oxlint-config": "workspace:*",
+    "@acme/typescript-config": "workspace:*",
+    "typescript": "7.0.2",
+    "varlock": "1.21.0"
+  }
+}

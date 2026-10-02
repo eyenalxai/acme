@@ -1,0 +1,5 @@
+{
+  "$schema": "https://json.schemastore.org/tsconfig",
+  "extends": "@acme/typescript-config/lib.json",
+  "include": ["src/**/*", "drizzle.config.ts"]
+}

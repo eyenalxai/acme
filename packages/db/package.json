@@ -1,0 +1,36 @@
+{
+  "name": "@acme/db",
+  "version": "0.0.1",
+  "private": true,
+  "license": "proprietary",
+  "type": "module",
+  "imports": {
+    "#*": "./src/*.ts"
+  },
+  "exports": {
+    "./*": "./src/*.ts"
+  },
+  "scripts": {
+    "db:generate": "varlock run --path ../.. -- drizzle-kit generate",
+    "db:migrate": "varlock run --path ../.. -- drizzle-kit migrate",
+    "db:push": "varlock run --path ../.. -- drizzle-kit push",
+    "db:studio": "varlock run --path ../.. -- drizzle-kit studio",
+    "tsc": "tsc --noEmit",
+    "format": "oxfmt",
+    "lint": "oxlint --type-aware --fix --no-error-on-unmatched-pattern"
+  },
+  "dependencies": {
+    "@acme/env": "workspace:*",
+    "@effect/sql-pg": "4.0.0-rc.115",
+    "drizzle-orm": "1.0.0-rc.5-5935859",
+    "effect": "4.0.0-rc.115",
+    "pg": "8.23.0"
+  },
+  "devDependencies": {
+    "@acme/oxlint-config": "workspace:*",
+    "@acme/typescript-config": "workspace:*",
+    "@types/pg": "8.23.1",
+    "drizzle-kit": "1.0.0-rc.4",
+    "typescript": "7.0.2"
+  }
+}
