@@ -111,7 +111,7 @@ through the stack. Trace it end to end before you add a feature:
 - **No comments** unless they answer a hard "why is it this way?" question.
 - **Write documentation and comments in Simplified Technical English.** All documentation and code comments
   use ASD-STE100 Simplified Technical English: short sentences, active voice, one term for one concept.
-- **No tests, no dev servers, no browser.**
+- **No tests** unless they cover really tricky logic where a subtle bug is hard to catch by hand. No dev servers, no browser.
 
 ## Effect (v4, pinned)
 
