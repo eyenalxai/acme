@@ -1,6 +1,6 @@
 # acme
 
-A full-stack web-app starter with no product domain. See [CONTEXT.md](./CONTEXT.md) for
+A full-stack web-app starter with no product domain. See [GLOSSARY.md](./GLOSSARY.md) for
 the domain vocabulary. See [docs/adr](./docs/adr) for decisions. The Notes example is the
 end-to-end reference that shows how a feature moves through the stack.
 

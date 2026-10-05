@@ -4,7 +4,7 @@ A full-stack web-app starter with no product domain. TanStack Start and React 19
 the browser. Effect v4, oRPC, Drizzle and Better Auth run on the server. varlock manages
 the environment, shadcn/ui provides the components, and Bun and Turbo provide the
 tooling. The Notes example is the end-to-end reference that shows how to wire a
-feature. [AGENTS.md](./AGENTS.md) is the operating manual, [CONTEXT.md](./CONTEXT.md)
+feature. [AGENTS.md](./AGENTS.md) is the operating manual, [GLOSSARY.md](./GLOSSARY.md)
 holds the domain vocabulary, and [docs/adr](./docs/adr) holds the decisions.
 
 ## Requirements
