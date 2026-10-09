@@ -4,6 +4,25 @@ A full-stack web-app starter with no product domain. See [GLOSSARY.md](./GLOSSAR
 the domain vocabulary. See [docs/adr](./docs/adr) for decisions. The Notes example is the
 end-to-end reference that shows how a feature moves through the stack.
 
+## Agent skills
+
+### Issue tracker
+
+Issues live in Linear, driven with the `rata` CLI. Every issue must carry a
+priority and be assigned to the authenticated user. Wayfinder children are the
+exception: the claim step assigns them. See `docs/agents/issue-tracker.md`.
+
+### Triage labels
+
+Default five-role vocabulary: `needs-triage`, `needs-info`,
+`ready-for-agent`, `ready-for-human`, `wontfix`. See
+`docs/agents/triage-labels.md`.
+
+### Domain docs
+
+Single-context layout: one `GLOSSARY.md` at the repo root plus ADRs in
+`docs/adr/`. See `docs/agents/domain.md`.
+
 ## Working agreement
 
 - **Use subagents.** Split independent tasks across subagents and run them in
