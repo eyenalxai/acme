@@ -28,7 +28,7 @@
   "devDependencies": {
     "@acme/oxlint-config": "workspace:*",
     "@acme/typescript-config": "workspace:*",
-    "@tanstack/query-core": "5.104.0",
+    "@tanstack/query-core": "5.104.1",
     "typescript": "7.0.2"
   }
 }

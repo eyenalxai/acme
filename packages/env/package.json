@@ -23,6 +23,6 @@
     "@acme/oxlint-config": "workspace:*",
     "@acme/typescript-config": "workspace:*",
     "typescript": "7.0.2",
-    "varlock": "1.21.0"
+    "varlock": "1.21.1"
   }
 }

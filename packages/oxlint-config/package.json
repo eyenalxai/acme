@@ -24,11 +24,11 @@
   },
   "devDependencies": {
     "@acme/typescript-config": "workspace:*",
-    "@types/node": "26.6.3",
-    "oxlint": "1.85.0",
+    "@types/node": "26.6.4",
+    "oxlint": "1.87.0",
     "typescript": "7.0.2"
   },
   "peerDependencies": {
-    "oxlint-plugin-react-doctor": "0.9.14"
+    "oxlint-plugin-react-doctor": "0.9.17"
   }
 }
