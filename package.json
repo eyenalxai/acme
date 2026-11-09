@@ -17,6 +17,7 @@
     "lint": "turbo run lint",
     "format": "turbo run format",
     "check": "turbo run format lint tsc",
+    "check:env": "varlock load && varlock scan 'apps/*/src/**/*' 'packages/*/src/**/*'",
     "db:generate": "turbo run db:generate",
     "db:migrate": "turbo run db:migrate",
     "db:push": "turbo run db:push",
@@ -25,21 +26,24 @@
     "up": "docker compose up -d",
     "down": "docker compose down"
   },
+  "dependencies": {
+    "@varlock/1password-plugin": "2.0.6",
+    "varlock": "1.24.0"
+  },
   "devDependencies": {
     "@types/bun": "1.4.4",
     "@types/node": "26.6.6",
-    "@varlock/1password-plugin": "2.0.6",
     "@acme/oxlint-config": "workspace:*",
     "oxfmt": "0.77.0",
     "oxlint": "1.92.0",
     "oxlint-plugin-react-doctor": "0.9.22",
     "oxlint-tsgolint": "7.0.2006",
     "turbo": "2.11.10",
-    "typescript": "7.0.2",
-    "varlock": "1.24.0"
+    "typescript": "7.0.2"
   },
   "engines": {
-    "bun": "1.4.4"
+    "bun": "1.4.4",
+    "node": ">=22.12.0"
   },
   "packageManager": "bun@1.4.4",
   "trustedDependencies": [

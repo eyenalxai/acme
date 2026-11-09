@@ -1,8 +1,10 @@
 {
-  "$schema": "https://turborepo.com/schema.json",
+  "$schema": "https://turborepo.dev/schema.json",
   "ui": "tui",
+  "agentGuidance": true,
   "globalDependencies": [
     ".env.schema",
+    ".env.development",
     "oxlint.config.ts",
     "packages/oxlint-config/src/**",
     "packages/oxlint-config/package.json",
@@ -10,8 +12,14 @@
     "apps/*/oxlint.config.ts",
     "packages/*/oxlint.config.ts"
   ],
-  "globalEnv": ["NODE_ENV", "APP_ENV", "VARLOCK_ENV"],
-  "globalPassThroughEnv": ["PORTLESS"],
+  "globalEnv": ["NODE_ENV", "APP_ENV", "VARLOCK_ENV", "APP_URL", "GITHUB_CLIENT_ID"],
+  "globalPassThroughEnv": [
+    "PORTLESS",
+    "DATABASE_URL",
+    "BETTER_AUTH_SECRET",
+    "GITHUB_CLIENT_SECRET",
+    "OP_TOKEN"
+  ],
   "tasks": {
     "dev": {
       "dependsOn": ["^tsc"],
@@ -21,11 +29,11 @@
     "build": {
       "dependsOn": ["^tsc"],
       "outputs": [".output/**", "dist/**"],
-      "inputs": ["src/**", "public/**", "vite.config.*", "tsconfig.json"]
+      "inputs": ["src/**", "public/**", "*.config.*", "tsconfig.json"]
     },
     "tsc": {
       "dependsOn": ["^tsc"],
-      "inputs": ["src/**/*.ts", "src/**/*.tsx", "tsconfig.json", "package.json"]
+      "inputs": ["src/**/*.ts", "src/**/*.tsx", "*.config.*", "tsconfig.json", "package.json"]
     },
     "typegen": {
       "dependsOn": ["^tsc"],
@@ -34,11 +42,11 @@
     },
     "format": {
       "dependsOn": ["^format"],
-      "inputs": ["src/**", "*.json", "*.jsonc"]
+      "inputs": ["src/**", "*.config.*", "*.json", "*.jsonc"]
     },
     "lint": {
       "dependsOn": ["^lint"],
-      "inputs": ["src/**", "oxlint.config.ts", "package.json"]
+      "inputs": ["src/**", "*.config.*", "tsconfig.json", "package.json"]
     },
     "db:generate": {
       "cache": false
@@ -54,13 +62,7 @@
       "persistent": true
     },
     "auth:generate": {
-      "cache": false,
-      "outputs": ["src/database/schema/auth.generated.ts"]
-    },
-    "@acme/web#dev": {
-      "dependsOn": ["^tsc"],
-      "cache": false,
-      "persistent": true
+      "cache": false
     }
   }
 }
