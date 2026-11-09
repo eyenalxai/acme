@@ -115,7 +115,7 @@ through the stack. Trace it end to end before you add a feature:
   explicitly there too. It is a correctness habit, not a compiler requirement.
 - **No relative parent imports.** `import/no-relative-parent-imports` is an error. Use the package's own
   `#*` subpath imports (or `#components/*` etc.), or the `@acme/*` package specifiers. The pattern is
-  `"#*": "./src/*.ts"`, **not** `"#/*"`. Bun 1.4.2 cannot resolve a specifier whose first character after
+  `"#*": "./src/*.ts"`, **not** `"#/*"`. Bun cannot resolve a specifier whose first character after
   `#` is a slash. Node, TypeScript and Vite can resolve it. `#schema/index` resolves everywhere.
 - **Do not suppress lint rules.** If a rule genuinely cannot apply, say so in your summary and let the
   maintainer decide. Never add `oxlint-disable` silently.
