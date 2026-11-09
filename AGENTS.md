@@ -64,6 +64,7 @@ Single-context layout: one `GLOSSARY.md` at the repo root plus ADRs in
 bun install
 bun run up                  # Postgres on :5434 via docker-compose
 bun run check               # format + lint + typecheck, every workspace
+bun run check:env           # validate the environment and scan the source for leaks
 bun run db:generate         # generate a Drizzle migration from the schema
 bun run db:migrate          # apply migrations
 bun run auth:generate       # regenerate the Better Auth tables into packages/db
@@ -252,6 +253,7 @@ injects every value, including `APP_ENV` and the secrets. See `docs/adr/0004-sec
 Only these resolve secret values, so only these can raise an approval prompt:
 
 - `varlock load`, `explain`, `reveal` and `run -- ...` — so `db:migrate`, `db:push`, `db:studio` and `auth:generate` qualify
+- `bun run check:env`, because it runs `varlock load` and `varlock scan`
 - `vite dev` and `vite build`, through the varlock Vite plugin
 
 `varlock codegen`, `tsc`, `lint` and `format` never resolve a secret. `bun run check` chains `codegen` only,
@@ -328,5 +330,5 @@ Turborepo configuration, task behavior, and CLI commands can vary between instal
 
 Read `docs/README.md` inside that installed package first, then read the relevant pages from its `docs/` directory before changing Turborepo configuration or commands. Heed deprecation notices. These bundled docs match the installed package version and are available without network access.
 
-This block is written and re-added by `turbo` before repository-scoped commands when an AI agent is detected. In the Turborepo source repository, its template is defined in `crates/turborepo-cli/src/cli/agent_guidance.rs`. Removing the managed block while updates are enabled means a later qualifying invocation will add it again. Set `"agentGuidance": false` in the root `turbo.json` or `turbo.jsonc` to opt out; this does not remove an existing block. Keep the block committed with your work to avoid an uncommitted change on the next agent invocation.
+This block is written and re-added by `turbo` before repository-scoped commands when an AI agent is detected. In the Turborepo source repository, its template is defined in `crates/turborepo-cli/src/cli/agent_guidance.rs`. Removing the managed block while updates are enabled means a later qualifying invocation will add it again. Set `"agentGuidance": true` in the root `turbo.json` or `turbo.jsonc` to opt in; this does not remove an existing block. Keep the block committed with your work to avoid an uncommitted change on the next agent invocation.
 <!-- END:turborepo-agent-rules -->
