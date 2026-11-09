@@ -266,7 +266,7 @@ Only in your personal `.env.local`, never in `.env.schema` or any other committe
 
 ### Environment types
 
-`@generateTsTypes` is declared with `auto=false` and `exposeEnv=none`. The generated
+`@generateTsTypes` is declared with `auto=false`, `exposeEnv=none` and `icons=false`. The generated
 `packages/env/src/env.d.ts` is committed, and only `bun run --filter @acme/env codegen` produces it. See
 `docs/adr/0002-varlock-declares-effect-config-reads.md`.
 
@@ -287,8 +287,11 @@ Only in your personal `.env.local`, never in `.env.schema` or any other committe
    1Password web UI with read access to the `Acme` vault. Put its token in `.env.local` as `OP_TOKEN`. CI
    authenticates the same way. `allowAppAuth` is consulted only when that token is empty.
 
-3. The deploy platform injects the value for staging and production. A missing required value fails the load
-   in those environments.
+3. List the key in `turbo.json`. Put it in `globalEnv` when it changes task output and must
+   invalidate the cache. Put it in `globalPassThroughEnv` when the task needs the value without
+   hashing it. Strict mode drops every key that is not listed.
+4. The deploy platform injects the value for staging and production. A missing required value fails
+   the load.
 
 A failing `op()` reference is a **hard** load failure. See `docs/adr/0004-secrets-never-enter-the-repository.md`.
 

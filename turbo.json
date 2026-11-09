@@ -42,7 +42,7 @@
     },
     "format": {
       "dependsOn": ["^format"],
-      "inputs": ["src/**", "*.json", "*.jsonc"]
+      "inputs": ["src/**", "*.config.*", "*.json", "*.jsonc"]
     },
     "lint": {
       "dependsOn": ["^lint"],

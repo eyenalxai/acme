@@ -15,6 +15,9 @@ holds the domain vocabulary, and [docs/adr](./docs/adr) holds the decisions.
 
 ## Quickstart
 
+Create `.env.local` with `BETTER_AUTH_SECRET`, `GITHUB_CLIENT_ID` and `GITHUB_CLIENT_SECRET` before
+you run `bun run db:migrate`. That command runs `varlock run`, so the load fails without them.
+
 ```bash
 bun install
 bun run up             # Postgres on host port 5434

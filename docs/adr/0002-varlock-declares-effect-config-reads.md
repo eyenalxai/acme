@@ -11,11 +11,13 @@ needed, and neither replaces the other.
 
 ## Consequences
 
-- Adding a variable means editing `.env.schema` _and_ adding a `Config` recipe. The
-  key name is therefore written twice. That duplication is the cost of not
-  hand-writing a varlock→Effect bridge.
+- Adding a variable means editing `.env.schema`, adding a `Config` recipe, and listing
+  the key in the Turbo allowlist: `globalEnv` when it changes task output,
+  `globalPassThroughEnv` when the task needs the value without hashing it. The Turbo
+  list is the third place. Turbo strict mode drops every key that is not listed. That
+  duplication is the cost of not hand-writing a varlock→Effect bridge.
 - We use varlock's `@generateTsTypes`, declared as
-  `@generateTsTypes(path=./packages/env/src/env.d.ts, exposeEnv=none, processEnv=none, importMetaEnv=none, auto=false)`.
+  `@generateTsTypes(path=./packages/env/src/env.d.ts, exposeEnv=none, processEnv=none, importMetaEnv=none, auto=false, icons=false)`.
   The generated file is a pure, ambient-free types module: no `declare module`, no
   `declare global`, no `namespace NodeJS`, no `import.meta.env` augmentation. That
   design matters, because nothing here can read either global. Browser config reaches

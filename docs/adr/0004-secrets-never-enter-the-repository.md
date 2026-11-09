@@ -31,8 +31,8 @@ gitignored, and a developer's real values go there.
 
 ## Consequences
 
-- A missing value fails the load in staging and production. `.env.schema` marks the
-  deployed secrets `@required=forEnv(staging, production)`.
+- A missing value fails the load in every environment. `.env.schema` marks
+  `BETTER_AUTH_SECRET`, `GITHUB_CLIENT_ID` and `GITHUB_CLIENT_SECRET` `@required`.
 - Nothing committed can raise a 1Password approval prompt. A prompt appears only when
   someone resolves a reference that they added to `.env.local`.
 - A 1Password service account makes resolution headless. Its token goes in `.env.local`
@@ -50,7 +50,7 @@ gitignored, and a developer's real values go there.
   verified this by pointing a reference at a nonexistent vault. The load exited
   non-zero alone and zero with the values injected.
 - A reference that cannot be resolved is a hard failure. `varlock load` exits 1, even
-  for an item that is `@required=forEnv(...)` only outside development. The plugin's
+  for an item that is not required in the current environment. The plugin's
   `allowMissing` yields `undefined` for an item that does not exist instead. We do not
   use it, so a missing secret stops the process and does not surface as `undefined` at
   runtime. `allowMissing` does not rescue a wrong vault name either, because
