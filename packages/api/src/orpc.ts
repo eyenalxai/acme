@@ -1,5 +1,5 @@
-import "@orpc/experimental-effect/extensions/effect"
-import "@orpc/experimental-effect/extensions/input-output"
+import "@orpc/effect/extensions/effect"
+import "@orpc/effect/extensions/schema"
 import { oc } from "@orpc/contract"
 import { os } from "@orpc/server"
 

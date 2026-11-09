@@ -134,12 +134,12 @@ through the stack. Trace it end to end before you add a feature:
 
 ## Effect (v4, pinned)
 
-`effect` is pinned to **`4.0.0-rc.115`** across the workspace. The paired version is
-**`drizzle-orm@1.0.0-rc.5-5935859`**. The pair is constrained on two axes, so read
-`docs/adr/0001-pin-effect-to-rc-115.md` before you change either pin. Do not raise Effect past rc.117,
-and never mask Drizzle's dangling import with `skipLibCheck` or a tsconfig path shim. rc.115 uses the
-`effect/unstable/*` path segment. Before you write Effect code, read `node_modules/effect/AGENTS.md`
-if present, and search `node_modules/effect/src` for the exact API. Do not assume rc.118 or v3 shapes.
+`effect` is pinned to **`4.1.2`** across the workspace. The paired version is
+**`drizzle-orm@1.0.0-rc.5`**. Read `docs/adr/0014-track-the-stable-effect-and-drizzle-pair.md`
+before you change either pin. Never mask a dangling Drizzle import with `skipLibCheck` or a tsconfig
+path shim. Effect 4.1 uses the stable `effect/sql` path segment; the `effect/unstable/*` paths no longer
+exist. Before you write Effect code, read `node_modules/effect/AGENTS.md` if present, and search
+`node_modules/effect/src` for the exact API. Do not assume v3 shapes.
 
 Conventions:
 
@@ -167,13 +167,13 @@ Conventions:
 - **Effect is server-only.** Do not import `effect` from browser code, from `packages/ui`, or from a route
   component.
 
-### rc.115 API cheat sheet
+### Effect 4.1 API cheat sheet
 
-These differ from both v3 and rc.118. Verified against the installed package:
+These differ from both v3 and the rc line. Verified against the installed package:
 
-| Need                             | At rc.115                                                                                                                                                                                                 |
+| Need                             | At 4.1.2                                                                                                                                                                                                  |
 | -------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Import paths                     | `effect/unstable/http`, `effect/unstable/sql`, `effect/unstable/rpc`. There is **no** `effect/http` or `effect/sql`.                                                                                      |
+| Import paths                     | `effect/http`, `effect/sql`, `effect/rpc`. There is **no** `effect/unstable/*` path segment.                                                                                                               |
 | Service definition               | `class X extends Context.Service<X, Shape>()("pkg/X") { static readonly layer = Layer.effect(X, ...) }`, then `X.of({ ... })`. **`Effect.Service`, `Context.Tag` and `Context.GenericTag` do not exist.** |
 | Catch all error-channel failures | `Effect.catch` — **`Effect.catchAll` does not exist.** Full cause recovery is `Effect.catchCause`.                                                                                                        |
 | Cause                            | Already flattened: `Cause<E>` is `{ readonly reasons: ReadonlyArray<Fail<E> \| Die \| Interrupt> }`. No `Sequential`/`Parallel`/`Empty`. `Cause.hasInterruptsOnly`, `Cause.squash` exist.                 |
@@ -183,7 +183,7 @@ These differ from both v3 and rc.118. Verified against the installed package:
 | Boundary decode                  | `Schema.decodeUnknownEffect` / `Schema.decodeUnknownSync`. There is no plain `decodeUnknown`.                                                                                                             |
 | Dates                            | `Schema.Date` and `Schema.DateTimeUtc` are **self** schemas (they accept `Date` / `DateTime.Utc` values). String decoding is on `Schema.DateFromString` and `Schema.DateTimeUtcFromString`.               |
 | Bun runtime                      | `import { BunRuntime } from "@effect/platform-bun"` → `BunRuntime.runMain(effect)`. `BunServices.layer` provides filesystem/path/stdio/crypto/terminal/spawner.                                           |
-| Drizzle                          | `drizzle-orm/effect-postgres` exports `makeWithDefaults` / `EffectPgDatabase`; it requires a `PgClient` from `@effect/sql-pg`. Pinned at `1.0.0-rc.5-5935859`.                                            |
+| Drizzle                          | `drizzle-orm/effect-postgres` exports `makeWithDefaults` / `EffectPgDatabase`; it requires a `PgClient` from `@effect/sql-pg`. Pinned at `1.0.0-rc.5`.                                                      |
 
 ## Logging
 
