@@ -17,18 +17,18 @@
   },
   "dependencies": {
     "@acme/db": "workspace:*",
-    "@orpc/client": "2.0.0-beta.40",
-    "@orpc/contract": "2.0.0-beta.40",
-    "@orpc/experimental-effect": "2.0.0-beta.40",
-    "@orpc/server": "2.0.0-beta.40",
-    "@orpc/tanstack-query": "2.0.0-beta.40",
-    "drizzle-orm": "1.0.0-rc.5-5935859",
-    "effect": "4.0.0-rc.115"
+    "@orpc/client": "2.0.0-beta.48",
+    "@orpc/contract": "2.0.0-beta.48",
+    "@orpc/effect": "2.0.0-beta.48",
+    "@orpc/server": "2.0.0-beta.48",
+    "@orpc/tanstack-query": "2.0.0-beta.48",
+    "drizzle-orm": "1.0.0-rc.5",
+    "effect": "4.1.2"
   },
   "devDependencies": {
     "@acme/oxlint-config": "workspace:*",
     "@acme/typescript-config": "workspace:*",
-    "@tanstack/query-core": "5.104.1",
+    "@tanstack/query-core": "5.106.1",
     "typescript": "7.0.2"
   }
 }

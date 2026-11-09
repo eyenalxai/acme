@@ -1,4 +1,4 @@
-import type { WithEffectContext } from "@orpc/experimental-effect"
+import type { WithEffectContext } from "@orpc/effect"
 
 import type { ServerServices } from "#services"
 import type { SessionUser } from "#services/session"

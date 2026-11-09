@@ -1,5 +1,7 @@
 # Pin Effect to 4.0.0-rc.115, with Drizzle's rc5 build
 
+Status: superseded by [ADR 0014](./0014-track-the-stable-effect-and-drizzle-pair.md).
+
 We use Effect as the server-side effect system and Drizzle as the ORM. Both are on
 pre-release lines. Drizzle's Effect integration calls Effect APIs at runtime that its
 declarations never mention. The two libraries therefore constrain each other from two
