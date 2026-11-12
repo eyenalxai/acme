@@ -5,7 +5,7 @@
   "license": "MIT",
   "type": "module",
   "scripts": {
-    "dev": "portless",
+    "dev": "portless run --prefix \"\"",
     "dev:app": "vite dev",
     "build": "vite build",
     "start": "varlock run --path ../.. -- bun --bun dist/server/server.js",
@@ -39,7 +39,7 @@
     "@varlock/vite-integration": "1.5.5",
     "@vitejs/plugin-react": "6.2.1",
     "oxc-transform-react": "0.156.0",
-    "portless": "0.15.7",
+    "portless": "0.17.0",
     "tailwindcss": "4.3.4",
     "typescript": "7.0.2",
     "vite": "8.3.6"
