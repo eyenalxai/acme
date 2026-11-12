@@ -69,7 +69,6 @@ bun run db:generate         # generate a Drizzle migration from the schema
 bun run db:migrate          # apply migrations
 bun run auth:generate       # regenerate the Better Auth tables into packages/db
 bun dev                     # web at https://acme.localhost via portless
-PORTLESS=0 bun dev          # bypass portless; Vite serves http://localhost:3000, not APP_URL
 
 # Several tasks in one workspace. `--sequential` is required. Without it, Bun
 # forwards the extra task names as CLI arguments to the first script.

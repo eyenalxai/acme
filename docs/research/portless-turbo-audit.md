@@ -1,7 +1,7 @@
 # Portless and Turborepo audit
 
 - Date: 2026-11-09
-- Status: Research complete. No repository code changed. This file is the only deliverable.
+- Status: Research complete. No repository code changed. This file is the only deliverable. The `PORTLESS=0` bypass is no longer documented and is no longer passed through Turbo; the remainder of the audit remains the evidence for the 0.17.0 upgrade.
 - Repository: `/home/ulezot/.t3/worktrees/acme/t3-9d15b7a4`
 - Installed versions: `portless@0.15.7`, `turbo@2.11.7`
 - Latest registry versions: `portless@0.17.0`, `turbo@2.11.10`
