@@ -25,9 +25,6 @@ bun run db:migrate     # apply migrations
 bun dev                # https://acme.localhost via portless
 ```
 
-`PORTLESS=0 bun dev` bypasses portless. Vite then serves http://localhost:3000, which is
-not `APP_URL`.
-
 ## Secrets
 
 Every variable is declared in [.env.schema](./.env.schema). Secrets and machine-specific

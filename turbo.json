@@ -14,7 +14,6 @@
   ],
   "globalEnv": ["NODE_ENV", "APP_ENV", "VARLOCK_ENV", "APP_URL", "GITHUB_CLIENT_ID"],
   "globalPassThroughEnv": [
-    "PORTLESS",
     "DATABASE_URL",
     "BETTER_AUTH_SECRET",
     "GITHUB_CLIENT_SECRET",
