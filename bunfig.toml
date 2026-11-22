@@ -4,14 +4,3 @@ env = false
 [install]
 linker = "isolated"
 minimumReleaseAge = 259200 # 3 days
-minimumReleaseAgeExcludes = [
-  "better-auth",
-  "@better-auth/core",
-  "@better-auth/drizzle-adapter",
-  "@better-auth/kysely-adapter",
-  "@better-auth/memory-adapter",
-  "@better-auth/mongo-adapter",
-  "@better-auth/prisma-adapter",
-  "@better-auth/telemetry",
-  "@better-auth/utils",
-]
