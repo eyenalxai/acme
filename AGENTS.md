@@ -134,7 +134,7 @@ through the stack. Trace it end to end before you add a feature:
 
 ## Effect (v4, pinned)
 
-`effect` is pinned to **`4.1.2`** across the workspace. The paired version is
+`effect` is pinned to **`4.1.4`** across the workspace. The paired version is
 **`drizzle-orm@1.0.0-rc.5`**. Read `docs/adr/0014-track-the-stable-effect-and-drizzle-pair.md`
 before you change either pin. Never mask a dangling Drizzle import with `skipLibCheck` or a tsconfig
 path shim. Effect 4.1 uses the stable `effect/sql` path segment; the `effect/unstable/*` paths no longer
@@ -171,7 +171,7 @@ Conventions:
 
 These differ from both v3 and the rc line. Verified against the installed package:
 
-| Need                             | At 4.1.2                                                                                                                                                                                                  |
+| Need                             | At 4.1.4                                                                                                                                                                                                  |
 | -------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | Import paths                     | `effect/http`, `effect/sql`, `effect/rpc`. There is **no** `effect/unstable/*` path segment.                                                                                                               |
 | Service definition               | `class X extends Context.Service<X, Shape>()("pkg/X") { static readonly layer = Layer.effect(X, ...) }`, then `X.of({ ... })`. **`Effect.Service`, `Context.Tag` and `Context.GenericTag` do not exist.** |

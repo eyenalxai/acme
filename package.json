@@ -27,18 +27,18 @@
     "down": "docker compose down"
   },
   "dependencies": {
-    "@varlock/1password-plugin": "2.0.6",
-    "varlock": "1.24.0"
+    "@varlock/1password-plugin": "2.0.7",
+    "varlock": "1.25.0"
   },
   "devDependencies": {
     "@types/bun": "1.4.4",
     "@types/node": "26.6.6",
     "@acme/oxlint-config": "workspace:*",
-    "oxfmt": "0.77.0",
-    "oxlint": "1.92.0",
-    "oxlint-plugin-react-doctor": "0.9.22",
-    "oxlint-tsgolint": "7.0.2006",
-    "turbo": "2.11.10",
+    "oxfmt": "0.79.0",
+    "oxlint": "1.94.0",
+    "oxlint-plugin-react-doctor": "0.9.23",
+    "oxlint-tsgolint": "7.0.2007",
+    "turbo": "2.11.13",
     "typescript": "7.0.2"
   },
   "engines": {
