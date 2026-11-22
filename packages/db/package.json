@@ -21,9 +21,9 @@
   },
   "dependencies": {
     "@acme/env": "workspace:*",
-    "@effect/sql-pg": "4.1.2",
+    "@effect/sql-pg": "4.1.4",
     "drizzle-orm": "1.0.0-rc.5",
-    "effect": "4.1.2",
+    "effect": "4.1.4",
     "pg": "8.23.1"
   },
   "devDependencies": {

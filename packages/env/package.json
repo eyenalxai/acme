@@ -17,12 +17,12 @@
     "lint": "oxlint --type-aware --fix --no-error-on-unmatched-pattern"
   },
   "dependencies": {
-    "effect": "4.1.2"
+    "effect": "4.1.4"
   },
   "devDependencies": {
     "@acme/oxlint-config": "workspace:*",
     "@acme/typescript-config": "workspace:*",
     "typescript": "7.0.2",
-    "varlock": "1.24.0"
+    "varlock": "1.25.0"
   }
 }
